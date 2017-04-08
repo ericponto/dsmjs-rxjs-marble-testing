@@ -1,0 +1,13 @@
+const x = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("hi");
+  }, 1000);
+
+  // on error
+  // reject("oh no!");
+});
+
+x.then(
+  (val) => console.log(val),
+  (err) => console.log(err)
+);

@@ -1,0 +1,38 @@
+const view = (count$) =>
+  count$.map(count => (
+    `<div>
+      <button id="up">+</button>
+      <button id="down">-</button>
+      <output>${count}</output>
+    </div>`
+  ));
+
+const model = ({ up$, down$ }) => {
+  Observable.merge(
+    up$.mapTo(count => count + 1),
+    down$.mapTo(count => count - 1),
+  )
+  .startWith(0)
+  .scan((count, fn) => fn(count));
+};
+
+const clicks$ = Observable
+  .fromEvent(document, "click");
+
+const up$ = clicks$.filter(
+  e => e.target.id === "up"
+);
+const down$ = clicks$.filter(
+  e => e.target.id === "down"
+);
+
+const count$ = model({ up$, down$ });
+const html$ = view(count$);
+
+html$.subscribe(html =>
+  morphdom(
+    document.getElementById("app"),
+    html,
+    { childrenOnly: true }
+  )
+);

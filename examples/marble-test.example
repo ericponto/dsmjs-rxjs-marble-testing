@@ -1,0 +1,28 @@
+test("Test Model", (assert) => {
+  const testScheduler = new TestScheduler(
+    assert.deepEqual.bind(assert)
+  );
+
+  const upMarbles   = "---x------x----x-----";
+  const downMarbles = "------x-----------x--";
+  const expected    = "a--b--a---b----c--a--";
+  
+  const expectedStateMap = {
+    a: 0,
+    b: 1,
+    c: 2,
+  };
+
+  const up$ = testScheduler
+    .createHotObservable(upMarbles);
+  const down$ = testScheduler
+    .createHotObservable(downMarbles);
+
+  const count$ = model({up$, down$});
+
+  testScheduler
+    .expectObservable(count$)
+    .toBe(expected, expectedStateMap);
+
+  testScheduler.flush();
+});

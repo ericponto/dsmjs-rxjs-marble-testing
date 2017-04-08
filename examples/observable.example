@@ -1,0 +1,18 @@
+const x = Observable.create(observer => {
+  let i = 0;
+  setInterval(() => {
+    observer.next(i++)
+  }, 1000);
+
+  // on error
+  // observer.error("oh no!")
+
+  // on complete
+  // observer.complete();
+});
+
+x.subscribe({
+  next: val => console.log(val),
+  error: err => console.log(err),
+  complete: () => console.log("done")
+});

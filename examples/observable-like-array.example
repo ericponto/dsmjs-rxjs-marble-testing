@@ -1,0 +1,5 @@
+const x = Observable.interval();
+const y = x.map(x => x * x);
+const z = y.filter(x => x % 2);
+
+z.subscribe(console.log);
