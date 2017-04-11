@@ -66,7 +66,10 @@ export default class Presentation extends React.Component {
           <Heading textColor="text">Learning RxJS is hard</Heading>
         </Slide>
         <Slide bgColor="secondary">
-          <Heading textColor="text"><strong>Testing</strong> RxJS is hard too</Heading>
+          <Heading textColor="text">Learning when to use RxJS is hard, too</Heading>
+        </Slide>
+        <Slide bgColor="secondary">
+          <Heading textColor="text"><strong>Testing</strong> RxJS is...yeah, also hard</Heading>
         </Slide>
         <Slide bgColor="white">
           <Heading textColor="primaryDark" textAlign="left">Luckily there is a tool that can help us</Heading>

@@ -1,6 +1,6 @@
 import { test } from "qunitjs";
 import { TestScheduler } from "rxjs/Rx";
-import { model } from "./app";
+import { model } from "../model";
 
 test("Test Model", (assert) => {
 	// construct TestScheduler with deep equal assertion
@@ -10,7 +10,7 @@ test("Test Model", (assert) => {
 	const upMarbles   = "--x----x--x---";
 	const downMarbles = "----x-------x-";
 	const expected    = "a-b-a--b--c-b-";
-	
+
 	const expectedStateMap = {
 		a: 0,
 		b: 1,
