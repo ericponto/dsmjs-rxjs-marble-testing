@@ -27,7 +27,7 @@ import CodeSlide from "spectacle-code-slide";
 import MarbleDrawer from "./MarbleDrawer";
 
 // Import image preloader util
-import preloader from "spectacle/lib/utils/preloader";
+// import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
@@ -38,14 +38,14 @@ require("normalize.css");
 require("spectacle/lib/themes/default/index.css");
 
 
-const images = {
-  city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
-  logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
-};
+// const images = {
+//   city: require("../assets/city.jpg"),
+//   kat: require("../assets/kat.png"),
+//   logo: require("../assets/formidable-logo.svg"),
+//   markdown: require("../assets/markdown.png")
+// };
 
-preloader(images);
+// preloader(images);
 
 const theme = createTheme(themeColors, themeFonts);
 theme.screen.components.heading.h1.fontWeight = 300;
@@ -254,14 +254,14 @@ export default class Presentation extends React.Component {
           lang="js"
           code={require("raw-loader!../examples/app.example")}
           ranges={[
-            { loc: [0, 38], title: "The App" },
+            { loc: [0, 37], title: "The App" },
             { loc: [0, 8] },
             { loc: [9, 17] },
             { loc: [18, 20] },
-            { loc: [21, 27] },
+            { loc: [21, 26] },
+            { loc: [27, 28] },
             { loc: [28, 29] },
-            { loc: [29, 30] },
-            { loc: [31, 38] },
+            { loc: [30, 37] },
           ]}
         />
         <Slide>

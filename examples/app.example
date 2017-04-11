@@ -7,14 +7,13 @@ const view = (count$) =>
     </div>`
   ));
 
-const model = ({ up$, down$ }) => {
+const model = ({ up$, down$ }) =>
   Observable.merge(
     up$.mapTo(count => count + 1),
     down$.mapTo(count => count - 1),
   )
   .startWith(0)
   .scan((count, fn) => fn(count));
-};
 
 const clicks$ = Observable
   .fromEvent(document, "click");

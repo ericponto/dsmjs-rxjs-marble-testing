@@ -8,18 +8,26 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "lint": "eslint --ext .js,.jsx .",
     "deploy": "npm run clean & npm run build && surge -p .",
-    "start": "cross-env NODE_ENV=development node server.js"
+    "start": "cross-env NODE_ENV=development node server.js",
+    "build-test": "mkdirp js && browserify app/app.test.js -t babelify --outfile js/app.test.js",
+    "test": "npm run build-test && qunit 'js/app.test.js'"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "morphdom": "^2.3.2",
     "normalize.css": "3.0.3",
+    "qunitjs": "^2.3.1",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "rxjs": "^5.3.0",
     "spectacle": "^2.0.0",
     "spectacle-code-slide": "^0.3.1"
   },
   "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.3.0",
+    "mkdirp": "^0.5.1",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.18.0",
     "babel-eslint": "^7.0.0",
